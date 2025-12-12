@@ -23,9 +23,9 @@ graph LR
     n8n -- Notify --> Slack[Slack/Alerts]
 ```
 
-![n8n Workflow Diagram](assets/n8n_workflow.png)
+### 🔄 N8N Workflow Logic
 
-### 🔄 Workflow Logic
+![n8n Workflow Diagram](assets/n8n_workflow.png)
 
 The n8n workflow orchestrates the entire response process:
 
