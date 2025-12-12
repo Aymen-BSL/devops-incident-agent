@@ -19,7 +19,7 @@ graph LR
     Sim[Fake Error Simulator] -- POST /webhook --> n8n[n8n Workflow]
     n8n -- Tool Calls --> MCP[MCP Server]
     MCP -- Read/Write --> DB[(SQLite Database)]
-    n8n -- Prompt --> LLM["LLM (e.g., OpenAI)"]
+    n8n -- Prompt --> LLM["LLM (e.g., Gemini)"]
     n8n -- Notify --> Slack[Slack/Alerts]
 ```
 
