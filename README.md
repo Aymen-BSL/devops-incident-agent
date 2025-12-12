@@ -41,7 +41,7 @@ graph LR
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/hp/devops-incident-agent.git
+git clone https://github.com/Aymen-BSL/devops-incident-agent.git
 cd devops-incident-agent
 ```
 
