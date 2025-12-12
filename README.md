@@ -23,7 +23,7 @@ graph LR
     n8n -- Notify --> Slack[Slack/Alerts]
 ```
 
-### 🔄 N8N Workflow Logic
+## 🔄 N8N Workflow
 
 ![n8n Workflow Diagram](assets/n8n_workflow.png)
 
@@ -33,16 +33,16 @@ The n8n workflow orchestrates the entire response process:
 2.  **Analyze Log**: Calls the MCP server to normalize the log and generate a unique fingerprint.
 3.  **Lookup Known Error**: Checks the SQLite database (via MCP) to see if this fingerprint exists.
 4.  **Conditional Routing (If Node)**:
-    - **True (Known Error)**:
-      - Records the incident.
-      - Sends a "Known Error" notification to Slack, including the pre-existing suggested fix.
-      - Updates the last seen timestamp in the DB.
-    - **False (New Error)**:
+    - **True (Unknown Error)**:
       - Records the incident.
       - **Message Model (LLM)**: Sends the stack trace to Gemini to analyze the root cause and suggest a fix.
       - **Parse LLM Response**: Extracts the structured analysis.
       - **Save Known Error**: Calls MCP to save this new finding to the knowledge base.
       - Sends a "New Error" notification to Slack with the AI-generated fix.
+    - **False (Known Error)**:
+      - Records the incident.
+      - Sends a "Known Error" notification to Slack, including the pre-existing suggested fix.
+      - Updates the last seen timestamp in the DB.
 
 ## ✨ Key Features
 
